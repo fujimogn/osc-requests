@@ -5,14 +5,19 @@ import buffer from 'vinyl-buffer'
 import browserify from 'browserify'
 import watchify from 'watchify'
 import babel from 'babelify'
+import uglifyify from 'uglifyify'
 import { Server, } from 'karma'
 
 const src = {
     js: './src/index.js'
 }
 
+const debug = (process.env.NODE_ENV || 'debug').toLowerCase() == 'debug'
+
 function compile(watch) {
-    var bundler = watchify(browserify('./src/index.js', { debug: true }).transform(babel));
+    var bundler = watchify(browserify('./src/index.js', { debug: debug })
+                                .transform(babel)
+                                .transform(uglifyify));
 
     function rebundle() {
         bundler.bundle()
