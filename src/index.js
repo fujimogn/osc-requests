@@ -83,7 +83,7 @@ class OpenCameraRequests {
     status(id) {
         return fetch(`${this.cameraUrl}/osc/comamnds/status`, {
             method: POST,
-            body: { id }
+            body: JSON.stringify({ id })
         })
     }
 

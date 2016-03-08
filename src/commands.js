@@ -32,11 +32,18 @@ class OpenCameraCommands {
 
     _execute(command, parameters) {
         return fetch(`${this.cameraUrl}/osc/commands/execute`, {
-            name: command,
-            parameters: parameters || {}
+            method: POST,
+            body: JSON.stringify({
+                name: command,
+                parameters: parameters || {}
+            })
         }).then((response) => {
             if (response.status > 300) {
-                throw new Error(response)
+                try {
+                    throw new Error(response.json())
+                } catch (exc) {
+                    throw new Error(response)
+                }
             }
 
             const parsedResults = response.json()
@@ -112,7 +119,10 @@ class OpenCameraCommands {
 
             return fetch(`${this.cameraUrl}/osc/commands/execute`, {
                 method: POST,
-                parameters: { fileUri, _type, }
+                body: JSON.stringify({
+                    name: 'camera.getImage',
+                    parameters: { fileUri, _type, }
+                })
             }).then((response) => {
                 if (response.status > 300) {
                     throw new Error(response)
