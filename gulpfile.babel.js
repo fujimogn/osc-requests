@@ -9,7 +9,7 @@ import uglifyify from 'uglifyify'
 import { Server, } from 'karma'
 
 const src = {
-    js: './src/index.js'
+    js: './index.js'
 }
 
 const debug = (process.env.NODE_ENV || 'debug').toLowerCase() == 'debug'

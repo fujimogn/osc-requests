@@ -110,7 +110,15 @@ class OpenCameraCommands {
                 _type: _type || 'full'
             }
 
-            return ('camera.getImage', params)
+            return fetch(`${this.cameraUrl}/osc/commands/execute`, {
+                method: POST,
+                parameters: { fileUri, _type, }
+            }).then((response) => {
+                if (response.status > 300) {
+                    throw new Error(response)
+                }
+                return response.blob();
+            })
         }
     }
 
@@ -125,7 +133,7 @@ class OpenCameraCommands {
     }
 
     _getLivePreview(sessionId) {
-        return this._execute('camera._getLivePreview', { sessionId })
+        throw new Error("Live preview not yet supported")
     }
 
     getMetaData(fileUri) {
