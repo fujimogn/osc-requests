@@ -25,7 +25,7 @@ The following is a simple example of taking a photo
 import OpencameraRequests from 'opencamera-requests'
 
 const theCamera = new OpencameraRequests() //assumes theta
-theCamera.commands.startSession().then(({response: {sessionId}}) => {
+theCamera.commands.startSession().then(({results: {sessionId}}) => {
   return theCamera.commands.takePicture(sessionId)
 })
 ```
