@@ -18,6 +18,10 @@ class OpenCameraRequests {
     static options = options
     static imageTypes = imageTypes
 
+    /**
+     *
+     * @param cameraUrl - URL of the spherical camera you are using. Defaults to http://192.168.1.1 the THETA S IP
+     */
     constructor(cameraUrl = THETA_URL) {
         this.cameraUrl = cameraUrl
         this.commands = new OpenCameraCommands(cameraUrl)
@@ -26,7 +30,7 @@ class OpenCameraRequests {
     /**
      *
      * @returns Promise with camera info json
-     * Ex:
+     * Example output:
      *  {
      *   "manufacturer": "RICOH",
      *   "model": "RICOH THETA S",
@@ -58,7 +62,7 @@ class OpenCameraRequests {
     /**
      *
      * @returns Promise with current camera state information
-     * Ex:
+     * Example output:
      * {
      *  "fingerprint": "12EGA33",
      *   "state": {
@@ -80,8 +84,23 @@ class OpenCameraRequests {
         })
     }
 
+
+    /**
+     *
+     * @param id - the id of the job you are retrieving the status for. (like taking a picture)
+     * @returns Promise with the state of the job
+     *
+     * Example output:
+     * {
+     * "name": "camera.takePicture",
+     * "state": "done",
+     * "results": {
+     *    "fileUri": "100RICOH/R0010015.JPG"
+     *  }
+     * }
+     */
     status(id) {
-        return fetch(`${this.cameraUrl}/osc/comamnds/status`, {
+        return fetch(`${this.cameraUrl}/osc/commands/status`, {
             method: POST,
             body: JSON.stringify({ id })
         })
