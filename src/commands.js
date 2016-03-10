@@ -6,7 +6,7 @@ import { sorts,
 
 function validType(type) {
     if (type && imageTypes.indexOf(type) === -1) {
-        throw new Error(`Unrecognized image type of ${_type}. Must be one of ${", ".join(imageTypes)}`)
+        throw new Error(`Unrecognized image type of ${_type}. Must be one of ${imageTypes.join(", ")}`)
     }
     return true
 }
@@ -19,7 +19,7 @@ function validOptions(options) {
         return options
     }, [])
     if (offendingOptions.length > 0) {
-        throw new Error (`Options ${", ".join(offendingOptions)} are not recognized options. Must be one of ${", ".join(options)}`)
+        throw new Error (`Options ${offendingOptions.join(", ")} are not recognized options. Must be one of ${options.join(", ")}`)
     }
     return true;
 }
@@ -262,7 +262,7 @@ class OpenCameraCommands {
      */
     listAll(entryCount, continuationToken, detail, sort) {
         if (sort && sorts.indexOf(sort) === -1) {
-            throw new Error(`Sort type of ${sort} is unrecognized. Must be one of ${", ".join(sorts)}`)
+            throw new Error(`Sort type of ${sort} is unrecognized. Must be one of ${sorts.join(", ")}`)
         }
         const params = {
             entryCount,
