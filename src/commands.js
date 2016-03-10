@@ -11,12 +11,12 @@ function validType(type) {
     return true
 }
 
-function validOptions(options) {
-    const offendingOptions = options.reduce((options, option) => {
+function validOptions(requestedOptions) {
+    const offendingOptions = requestedOptions.reduce((opts, option) => {
         if (options.indexOf(option) === -1) {
-            options.push(option)
+            opts.push(option)
         }
-        return options
+        return opts
     }, [])
     if (offendingOptions.length > 0) {
         throw new Error (`Options ${offendingOptions.join(", ")} are not recognized options. Must be one of ${options.join(", ")}`)
