@@ -1,30 +1,30 @@
-# opencamera-requests
+# osc-requests
 Javascript wrapper for open camera APIs such as the Theta S. https://developers.theta360.com/en/docs/v2/api_reference/
 
 # Installation
-opencamera-requests can be installed via npm with
-`npm install opencamera-requests`
+osc-requests can be installed via npm with
+`npm install osc-requests`
 
 The bulk of the project can be in imported in code as follows
 
 Ecmascript2015+
 
-`import OpencameraRequests from 'opencamera-requests'`
+`import OSCRequests from 'osc-requests'`
 
 Standard node common modules
 
-`var OpencameraRequests = require('opencamera-requests');`
+`var OSCRequests = require('osc-requests');`
 
 # Basic usage
-Most basic usage of the library will revolve around instantiating OpencameraRequests with the IP of your camera (defaults to THETA S 
-http://192.168.1.1) and then manipulating the OpencameraRequests.commands objects. 
+Most basic usage of the library will revolve around instantiating OSCRequests with the IP of your camera (defaults to THETA S 
+http://192.168.1.1) and then manipulating the [OSCRequests.commands](#commands) objects. 
 
 The following is a simple example of taking a photo
 
 ```
-import OpencameraRequests from 'opencamera-requests'
+import OSCRequests from 'osc-requests'
 
-const theCamera = new OpencameraRequests() //assumes theta
+const theCamera = new OSCRequests() //assumes theta
 theCamera.commands.startSession().then(({results: {sessionId}}) => {
   return theCamera.commands.takePicture(sessionId)
 })
@@ -32,10 +32,10 @@ theCamera.commands.startSession().then(({results: {sessionId}}) => {
 
 # API
 
-**OpencameraRequests**
+***OSCRequests***
 
-* constructor(cameraUrl = http://192.168.1.1)
-* info() 
+* **constructor**(cameraUrl = http://192.168.1.1)
+* **info**() 
 ```
 @returns Promise with camera info json
       Example output:
@@ -62,7 +62,7 @@ theCamera.commands.startSession().then(({results: {sessionId}}) => {
      }
 ```
      
-* state() - returns information about the camera state
+* **state**() - returns information about the camera state
 ```
       @returns Promise with current camera state information
       Example output:
@@ -80,7 +80,7 @@ theCamera.commands.startSession().then(({results: {sessionId}}) => {
         }
        }
 ```
-* status(jobId) - retrieves the status of a job (such as taking a picture)
+* **status**(jobId) - retrieves the status of a job (such as taking a picture)
 ```
 /**
      *
@@ -97,10 +97,43 @@ theCamera.commands.startSession().then(({results: {sessionId}}) => {
      * }
      */
 ```
-* commands - [OpencameraCommands](#commands) object 
+* **commands** - [OSCCommands](#commands) object 
 
-<a href="commands"></a>**OpencameraCommands**
+# <a name="commands">OSCCommands</a>
 
-* 
+Commands to preform on the spherical camera. All commands come with a response formatted as written below:
 
+    {
+        "name": "camera.command",
+        "state": "done",
+        "id": "093ujkldsjf",
+        "progress": "{},
+        "errors": {},
+        "results": {
+          "options": {
+            "exposureProgram": 2,
+            "exposureProgramSupport": [1, 2, 4, 9]
+          }
+        } }
+
+Where the results object differs depending on the command. To see what the expected returns for each command is, [please check the annotated source](src/commands.js).
+
+The follow commands are available:
+
+* startSession
+* updateSession
+* closeSession
+* finishWlan
+* takePicture
+* startCapture
+* stopCapture
+* listImages
+* listAll
+* delete
+* getImage
+* getVideo
+* getLivePreview [TODO]
+* getMetadata
+* getOptions
+* setOptions
 
