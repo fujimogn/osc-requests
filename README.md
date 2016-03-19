@@ -17,7 +17,7 @@ Standard node common modules
 
 # Basic usage
 Most basic usage of the library will revolve around instantiating OSCRequests with the IP of your camera (defaults to THETA S 
-http://192.168.1.1) and then manipulating the [OSCRequests.commands](commands) objects. 
+http://192.168.1.1) and then manipulating the [OSCRequests.commands](#commands) objects. 
 
 The following is a simple example of taking a photo
 
@@ -99,7 +99,7 @@ theCamera.commands.startSession().then(({results: {sessionId}}) => {
 ```
 * **commands** - [OSCCommands](#commands) object 
 
-# [OSCCommands](#commands)
+# <a name="commands">OSCCommands</a>
 
 Commands to preform on the spherical camera. All commands come with a response formatted as written below:
 
@@ -116,7 +116,7 @@ Commands to preform on the spherical camera. All commands come with a response f
           }
         } }
 
-Where the results object differs depending on the command. To see what the expected returns for each command is, please check the annotated source.
+Where the results object differs depending on the command. To see what the expected returns for each command is, [please check the annotated source](src/commands.js).
 
 The follow commands are available:
 
