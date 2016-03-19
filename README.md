@@ -103,18 +103,18 @@ theCamera.commands.startSession().then(({results: {sessionId}}) => {
 
 Commands to preform on the spherical camera. All commands come with a response formatted as written below:
 
-> {
->     "name": "camera.command",
->     "state": "done",
->     "id": "093ujkldsjf",
->     "progress": "{},
->     "errors": {},
->     "results": {
->       "options": {
->         "exposureProgram": 2,
->         "exposureProgramSupport": [1, 2, 4, 9]
->       }
->     } }
+    {
+        "name": "camera.command",
+        "state": "done",
+        "id": "093ujkldsjf",
+        "progress": "{},
+        "errors": {},
+        "results": {
+          "options": {
+            "exposureProgram": 2,
+            "exposureProgramSupport": [1, 2, 4, 9]
+          }
+        } }
 
 Where the results object differs depending on the command. To see what the expected returns for each command is, please check the annotated source.
 
