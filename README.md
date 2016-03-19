@@ -2,7 +2,7 @@
 Javascript wrapper for open camera APIs such as the Theta S. https://developers.theta360.com/en/docs/v2/api_reference/
 
 # Installation
-opencamera-requests can be installed via npm with
+osc-requests can be installed via npm with
 `npm install osc-requests`
 
 The bulk of the project can be in imported in code as follows
