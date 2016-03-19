@@ -24,7 +24,7 @@ function validOptions(requestedOptions) {
     return true;
 }
 
-class OpenCameraCommands {
+class OSCCommands {
 
     constructor(cameraUrl) {
         this.cameraUrl = cameraUrl
@@ -460,4 +460,4 @@ class OpenCameraCommands {
 
 }
 
-export default OpenCameraCommands
+export default OSCCommands

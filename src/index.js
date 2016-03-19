@@ -1,8 +1,11 @@
 import { GET,
          POST, } from './http-methods'
 
-import OpenCameraCommands from './commands'
-import {sorts, options, imageTypes } from './camera-constants'
+import OSCCommands from './commands'
+import {
+  sorts,
+  options,
+  imageTypes, } from './camera-constants'
 
 const THETA_URL = "http://192.168.1.1"
 
@@ -12,7 +15,7 @@ const THETA_URL = "http://192.168.1.1"
  * @param (cameraUrl) IP of the OpenCamera. Defaults to http://192.168.1.1 the THETA S IP
  *
  */
-class OpenCameraRequests {
+class OSCRequests {
 
     static sorts = sorts
     static options = options
@@ -24,7 +27,7 @@ class OpenCameraRequests {
      */
     constructor(cameraUrl = THETA_URL) {
         this.cameraUrl = cameraUrl
-        this.commands = new OpenCameraCommands(cameraUrl)
+        this.commands = new OSCCommands(cameraUrl)
     }
 
     /**
@@ -108,4 +111,4 @@ class OpenCameraRequests {
 
 }
 
-export default OpenCameraRequests
+export default OSCRequests

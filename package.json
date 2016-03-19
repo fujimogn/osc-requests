@@ -1,7 +1,7 @@
 {
-  "name": "opencamera-requests",
-  "version": "0.1.2",
-  "description": "Open Camera REST API requests wrapper for node",
+  "name": "osc-requests",
+  "version": "0.1.4",
+  "description": "Open Spherical Camera REST API requests wrapper for node",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,19 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adamsar/opencamera-request.git"
+    "url": "git+https://github.com/adamsar/osc-requests.git"
   },
   "keywords": [
-    "opencamera",
-    "theta",
-    "camera"
+      "open spherical camera",
+      "theta",
+      "theta s",
+      "camera"
   ],
   "author": "adamsar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adamsar/opencamera-request/issues"
+    "url": "https://github.com/adamsar/osc-requests/issues"
   },
-  "homepage": "https://github.com/adamsar/opencamera-request#readme",
+    
+  "homepage": "https://github.com/adamsar/osc-requests#readme",
   "devDependencies": {
     "babel-core": "^6.6.5",
     "babel-plugin-transform-class-properties": "^6.6.0",
