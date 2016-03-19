@@ -1,5 +1,5 @@
 # osc-requests
-Javascript wrapper for open camera APIs such as the Theta S. https://developers.theta360.com/en/docs/v2/api_reference/
+Javascript wrapper for open spherical camera APIs such as the Theta S. https://developers.theta360.com/en/docs/v2/api_reference/
 
 # Installation
 osc-requests can be installed via npm with
