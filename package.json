@@ -13,17 +13,16 @@
     "url": "git+https://github.com/adamsar/osc-requests.git"
   },
   "keywords": [
-      "open spherical camera",
-      "theta",
-      "theta s",
-      "camera"
+    "open spherical camera",
+    "theta",
+    "theta s",
+    "camera"
   ],
   "author": "adamsar",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/adamsar/osc-requests/issues"
   },
-    
   "homepage": "https://github.com/adamsar/osc-requests#readme",
   "devDependencies": {
     "babel-core": "^6.6.5",
@@ -34,15 +33,20 @@
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
+    "chai": "^3.5.0",
+    "expect.js": "^0.3.1",
     "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "jasmine-core": "^2.4.1",
+    "jsdom": "^8.1.0",
     "karma": "^0.13.21",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-browserify": "^5.0.2",
     "karma-jasmine": "^0.3.7",
     "karma-phantomjs-launcher": "^1.0.0",
     "phantomjs-prebuilt": "^2.1.4",
+    "sinon": "^1.17.3",
     "uglify": "^0.1.5",
     "uglifyify": "^3.0.1",
     "vinyl-buffer": "^1.0.0",

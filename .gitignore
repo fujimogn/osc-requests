@@ -180,3 +180,5 @@ fabric.properties
 
 /** CUSTOM **/
 build/*
+
+*.tern*

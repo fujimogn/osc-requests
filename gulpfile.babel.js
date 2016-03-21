@@ -6,7 +6,7 @@ import browserify from 'browserify'
 import watchify from 'watchify'
 import babel from 'babelify'
 import uglifyify from 'uglifyify'
-import { Server, } from 'karma'
+import mocha from 'gulp-mocha'
 
 const src = {
     js: './index.js'
@@ -45,12 +45,15 @@ function watch() {
 
 gulp.task('build', function() { return compile(); });
 gulp.task('watch', function() { return watch(); });
-
-gulp.task('test', (done) => {
-    new Server({
-        configFile: `${__dirname}/karma.config.js`,
-        singleRun: true
-    }, done).start()
-})
-
 gulp.task('default', ['watch']);
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+  return gulp.src('test/**/*.js', {read: false})
+         .pipe(mocha({
+          require: [__dirname + '/src-dev/jsdom.js'],
+          reporter: 'nyan',
+      }));
+});
