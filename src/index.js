@@ -95,7 +95,6 @@ class OSCRequests {
   state() {
     return fetch(`${this.cameraUrl}/osc/state`, {
       method: POST,
-      body: {}
     }).then(this._formatResults)
   }
 
