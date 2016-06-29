@@ -123,3 +123,4 @@ class OSCRequests {
 }
 
 export default OSCRequests
+module.exports = exports["default"];
